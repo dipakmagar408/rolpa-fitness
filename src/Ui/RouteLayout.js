@@ -1,13 +1,15 @@
-import React from 'react'
-import Header from './Header'
-import { Outlet } from 'react-router'
-const RouteLayout = () => {
-  return (
-    <div>
-      <Header/>
-      <Outlet/>
-    </div>
-  )
-}
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import { Outlet } from 'react-router-dom';
 
-export default RouteLayout
+const RouteLayout = () => (
+  <div>
+    <Header />
+    <Outlet /> {/* renders the matched route component here */}
+    <Footer />
+  
+  </div>
+);
+
+export default RouteLayout;

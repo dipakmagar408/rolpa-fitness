@@ -1,26 +1,28 @@
-import React from 'react'
-import Header from './Ui/Header'
-import { createBrowserRouter, RouterProvider } from 'react-router'
-import RouteLayout from './Ui/RouteLayout'
-import Home from './Features/Home'
-import Accout from './Features/Accout'
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RouteLayout from './Ui/RouteLayout';
+import Home from './Ui/Home';
+import Service from './Features/Service';
+import Account from './Features/Accout';
+import Login from './Features/Login';
+import Signup from './Features/Signup';
 
-const router = createBrowserRouter([{
-  path:'/',
-  element:<RouteLayout/>,
-  children:[
-    {index:true, element:<Home/>},
-    {path:'home', element:<Home/>},
-    {path:'account',element:<Accout/>}
-  ]
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RouteLayout />,
+    children: [
+      { index: true, element: <Home /> },       // Home page at '/'
+      { path: 'service', element: <Service /> },
+      { path: 'login', element: <Login /> },
+      { path: 'signup', element: <Signup /> },
+      { path:'account',element:<Account/>}
+    ],
+  },
+]);
 
-}])
 const App = () => {
-  return (
-    <div>
-    <RouterProvider router={router}/>
-    </div>
-  )
-}
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
